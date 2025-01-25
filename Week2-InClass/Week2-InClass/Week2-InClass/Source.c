@@ -8,13 +8,15 @@ void greet(void);                    // Student 1
 int add(int a, int b);               // Student 2
 int subtract(int a, int b);          // Student 3
 double calculateArea(double radius); // Student 4
-unsigned long long factorial(int n); // Student 5
+unsigned long factorial(int n); // Student 5
 void displayMenu(void);             // Student 6
+
 
 int main(void) {
     // Variable declarations
-    int choice;
+    int choice = 5;
     char input[100]; // For safer input handling
+    unsigned long (*funcPtr)(int, int);
 
     // Display a welcome message
     printf("Welcome to the Collaborative Code Management Program!\n");
@@ -39,12 +41,39 @@ int main(void) {
         break;
     case 3:
         // Call subtract function (placeholder)
+        
+        //
+        // Reference from the SENG1070 course material
+        // Declare a function pointer
+        
+        // Assign the address of exampleFunction to the function pointer
+        funcPtr = factorial;
+
+        // Use the function pointer to call the function 
+        int result = funcPtr(5, 4);
+
+        printf("result:%ld\n", result);
+        //printf("result:%ld\n", 5*4*3*2*1);
+
         break;
     case 4:
         // Call calculate_area function (placeholder)
         break;
     case 5:
         // Call factorial function (placeholder)
+        printf("This is only test");
+        //
+
+        unsigned long (*funcPtr)(int, int);
+        // Assign the address of exampleFunction to the function pointer
+        funcPtr = factorial;
+
+        // Use the function pointer to call the function 
+        result = funcPtr(5, 4);
+
+        printf("result:%ld\n", result);
+        //printf("result:%ld\n", 5*4*3*2*1);
+
         break;
     default:
         printf("Invalid choice. Please try again.\n");
@@ -58,7 +87,7 @@ int main(void) {
 
 // Student 1: Implement greet() function
 void greet(void) {
-    // Placeholder
+    printf("gfdsdsgsdfghsd");
 }
 
 // Student 2: Modify add() function to take user input
@@ -80,10 +109,28 @@ double calculateArea(double radius) {
 }
 
 // Student 5: Develop factorial() function
-unsigned long long factorial(int n) {
+unsigned long factorial(int n) {
     // Placeholder
-    return 0; // Replace with actual logic
-}
+    // Student 5: Develop factorial() function
+
+    // C program to Find the Factorial Using for Loop
+        // source from the geeksforgeeks.org
+        // Find Factorial of a Number Using for Loop
+        // 
+        // https://www.geeksforgeeks.org/c-program-for-factorial-of-a-number/
+
+        int fact_function = 1, count;
+
+        // Loop from 1 to N to get the factorial
+        for (count = 1; count <= n; count++) {
+            fact_function *= count;
+        }
+
+        return fact_function;
+    }
+
+//    return 0; // Replace with actual logic
+//}
 
 // Student 6: Implement display_menu() function
 void displayMenu(void) {
